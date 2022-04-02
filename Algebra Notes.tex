@@ -1,0 +1,177 @@
+\documentclass[12pt,a4paper,oneside]{book}   
+
+%\usepackage{nopageno} % Removes page numbers    
+       
+
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools,mathabx}
+\usepackage{verbatim}
+\usepackage{hyperref}% Introduce table of content with links to pdf file
+\usepackage{cleveref}
+\usepackage[11pt]{moresize}
+
+%For tikz
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+%Initiate Field
+\newcommand{\InitiateField}[2]{\coordinate(#1) at #2;
+	\draw (#1) node[anchor=mid] {#1}}
+
+%Draw Field Extensions
+\newcommand{\FieldExtension}[2] {\draw[line width=1pt] ([shift={(0cm,0.3cm)}]#1)-- ([shift={(0cm,-0.2cm)}]#2)}
+
+%Label a Field Extension
+\newcommand{\LeftLabelExtension}[3]{\draw [decorate,
+	decoration = {brace}, line width = 1pt] ([shift={(-0.4cm,+0.1cm)}]#1) --  ([shift={(-0.4cm,-0.1cm)}]#2) node[midway,left] {\scriptsize#3}}
+
+\newcommand{\RightLabelExtension}[3]{\draw [decorate,
+	decoration = {brace,mirror}, line width = 1pt] ([shift={(0.4cm,+0.1cm)}]#1) --  ([shift={(0.4cm,-0.1cm)}]#2) node[midway,right] {\scriptsize#3}}
+
+%End tikz
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=2cm,
+	top=2cm,
+	right=2cm,
+	bottom=2cm
+}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CE,CO]{\leftmark}
+\fancyfoot[CE,CO]{\thepage}
+
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\usepackage{cleveref}
+
+\usepackage{longtable}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
+\usepackage{tikz}% Required for latex draw pictures
+\usepackage{xcolor} %to get more predefined colours
+
+
+
+\usepackage{enumitem}
+\setlist[enumerate]{noitemsep}
+
+\usepackage[onehalfspacing]{setspace}
+\usepackage[parfill]{parskip}
+
+\usepackage{setspace}\onehalfspacing
+\AtBeginDocument{%
+	\addtolength\abovedisplayskip{-0.5\baselineskip}%
+	\addtolength\belowdisplayskip{-0.5\baselineskip}%
+	%  \addtolength\abovedisplayshortskip{-0.5\baselineskip}%
+	%  \addtolength\belowdisplayshortskip{-0.5\baselineskip}%
+} % Reduces Spacing
+
+
+
+
+
+\begingroup
+\makeatletter
+\@for\theoremstyle:=definition,remark,plain\do{%
+	\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{%
+		\addtolength\thm@preskip\parskip
+	}%
+}
+\endgroup % Adds space before theorems
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep-6pt
+	\trivlist
+	\item[\hskip\labelsep
+	\itshape
+	#1\@addpunct{.}]\ignorespaces
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+\def\th@plain{\thm@preskip\parskip\thm@postskip0pt\itshape}
+\def\th@definition{\thm@preskip\parskip\thm@postskip0pt\normalfont}
+\def\th@remark{\thm@headfont{\itshape}\normalfont\thm@preskip\parskip\thm@postskip0pt}
+\makeatother % Reduces Space before proofs
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section] % reset theorem numbering for each section
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{example}[theorem]{Example} % same for example numbers
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{exercises}[theorem]{Exercises}
+\newenvironment{solution}
+{\renewcommand\qedsymbol{$\star$}\begin{proof}[Solution]}
+	{\end{proof}}
+
+
+\def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-15mu\int}
+
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+\numberwithin{equation}{section} %equation numbering depending on section
+
+
+
+\usepackage[auto]{chappg}
+\pagenumbering{bychapter}
+% Restarts page number for each chapter
+
+
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\newcommand{\squeezeup}{\vspace{-4mm}}
+\newcommand{\increase}{\vspace{4mm}}
+
+\usepackage{multicol}
+
+
+\title{\bf {Algebra Notes for NET} }
+\author{}
+\date{ } % Removes Date
+
+\setlength{\columnseprule}{0.5pt} %column divider thickness
+
+\usepackage{etoolbox} % Reduce space before chapter name
+\makeatletter
+\patchcmd{\@makechapterhead}{50\p@}{0pt}{}{}
+\patchcmd{\@makeschapterhead}{50\p@}{0pt}{}{}
+\makeatother
+\begin{document}     
+%\maketitle
+%\mainmatter  
+%\include{LessonPlan}
+\include{1_Groups} 
+\include{2_Rings}
+\include{3_Fields}
+\end{document}                          
+

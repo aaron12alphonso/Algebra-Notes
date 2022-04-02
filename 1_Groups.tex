@@ -1,0 +1,131 @@
+\chapter{Groups}
+
+\textbf{Note to the reader:} This is not an exhaustive list of important results required for competitive exams but rather a starting point. The git hub link 
+                          
+\section{Basic Counting Results in Groups}
+
+\begin{theorem}
+	If $G$ is a group and $x\in G$ is of order $n$ then for any $k\in \N$
+	\begin{align*}
+		|x^k|=\dfrac{n}{\gcd(n,k)}
+	\end{align*} 	
+\end{theorem}
+
+\begin{theorem}
+	Let $G$ be a group and $x\in G$ be of order $n$ and suppose $s,t\in \N$. Then $\left\langle x^s\right\rangle=\left\langle x^t\right\rangle$ if and only if $\gcd(n,s)=\gcd(n,t)$.
+\end{theorem}
+
+\begin{theorem}[Lagrange's Theorem]
+	If $G$ is a finite group and $H$ is a subgroup of $G$ then $|G|=|H||G/H|$ and hence $|H|$ divides $|G|$.
+\end{theorem}
+
+\begin{theorem}
+	If $H$ and $K$ are finite subsets of a group $G$ then 
+	\begin{align}
+		|HK|=\dfrac{|H||K|}{|H\cap K|}
+	\end{align}
+\end{theorem}
+
+\begin{theorem}[Sylow's Theorem]
+	Let $G$ be a group of order $p^\alpha m$ where $p$ is a prime such that $p\not\divides m$ Then 
+	\begin{enumerate}
+		\item 
+		$G$ has a subgroup of order $p^\alpha$ i.e $G$ has a Sylow $p-$ subgroup.
+		\item 
+		If $P$ and $Q$ are Sylow $p-$ subgroups then $Q=gPg^{-1}$ for some $g\in G$.
+		\item 
+		If $n_p$ is the number of Sylow $p-$ subgroups of $G$ then $n_p\equiv 1\pmod p$ and $n_p\divides m$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	If $p$ and $q$ are primes such that $p<q$ and $q\not\equiv 1\pmod p$ then and group of order $pq$ is cyclic.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Finitely Generated Abelian Groups]
+	If $G$ is a finitely generated abelian group then there exists integers $r,n_1,n_2,\dots,n_s$ such that $|G|\equiv \Z^r\times \Z_{n_1}\times \Z_{n_2}\times\cdots\times \Z_{n_s}$ where
+		\begin{enumerate}
+			\item 
+			$r\geq 0$ and $n_j\geq 0$ for $1\leq j\leq s$
+			\item 
+			$n_{j+1}\divides n_j$ for $1\leq j\leq s-1$		
+		\end{enumerate}
+\end{theorem}
+
+\section{Homomorphisms}
+
+\begin{theorem}
+	Let $f:G\rightarrow H$ be a group homomorphism. Then we have the following properties
+	\begin{itemize}
+		\item 
+		For any finite subgroup $S$ of $G$, $|f(S)|\divides |S|$
+		\item 
+		For any $a\in G$ of finite order $|f(a)|\divides |a|$
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	Notice how the above theorem can help you to compute the number of homomorphisms from some group $G$ to another group $H$.
+\end{remark}
+
+\section{The Group $\Z_n$}
+\begin{theorem}
+	For $n\in \N$, $\Z_n$ has the following properties
+	\begin{itemize}
+		\item 
+		The group $\Z_n$ has exactly $\phi(n)$ generators.
+		\item 
+		The number of subgroups of $\Z_n$ are the number of divisors of $n$. 
+		\item 
+		For $a\in \Z_n$, $|a|=\dfrac{n}{\gcd(a,n)}$
+		\item 
+		For $a,b\in \Z_n$, $<a>=<b>$ if and only if $\gcd(a,n)=\gcd(a,n)$.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+	The number of homomorphisms from $\Z_n$ to $\Z_m$ is $\gcd(n,m)$.	
+\end{theorem}
+
+\section{The Group $S_n$}
+-The group of all permutations of an $n-$ set
+\begin{theorem}[Properties of $S_n$]
+	\begin{enumerate}
+		\item[]
+		\item 
+		The set of all transpositions is a generating set of $S_n$
+		\item 
+		For $\sigma=(a_1,a_2,\dots,a_k)\in S_n$ and $\tau\in S_n$, $\tau\sigma\tau^{-1}=(\tau(a_1),\tau(a_2),\dots,\tau(a_k))$.
+		\item 
+		The for any $n-$ cycle $\sigma$ and any transposition $\tau$ in $S_n$ the set $\{\sigma,\tau\}$ generates $S_n$.  
+		\item 
+		The number of conjugacy classes of $S_n$ is the number of partitions of $n$, $p(n)$. 
+		\item 
+		The order of a permutation in $S_n$ is the $lcm$ of the lengths of it's cycles when the permutation is written as a product of disjoint cycles. 
+	\end{enumerate}
+\end{theorem}
+
+\section{The Group $D_{2n}/D_n$}
+- The group of all symmetries of a regular polygon of $n-$ vertices.
+\begin{theorem}[Properties of $D_n$]
+	\begin{enumerate}
+		\item[]
+		\item 
+		$D_{2n}$ consist of $2n$ elements, $n$ of which are rotations and the rest are reflections
+		\item 
+		If $s$ is the reflection of the regular $n-$ gon about the line of symmetry that passes through the vertex $1$ and the origin and suppose $r$ is the rotation of the regular $n-$ gon by $2\pi/n$ radians then $D_{2n}=\{sr^k:0\leq k\leq n-1\}$
+		\item 
+		The composition of two rotations is a rotation.
+		\item 
+		The composition of a rotations and a reflection is a reflection.
+		\item 
+		The composition of two reflections is a rotation.
+		\item 
+		The inverse of a rotation is a rotation.
+		\item 
+		The inverse of a reflection is the same reflection. That is reflections are order $2$ elements of $D_{2n}$
+	\end{enumerate}
+\end{theorem}
+
+
+
